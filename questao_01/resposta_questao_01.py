@@ -2,13 +2,13 @@
 # Enquanto K < INDICE faça { K = K + 1; SOMA = SOMA + K; } Imprimir(SOMA);  
 
 
-indice: int = 13
-soma: int = 0
-k: int = 0
+def questao_um_retorno_soma():
+    indice: int = 13
+    soma: int = 0
+    k: int = 0
 
-while k < indice:
+    while k < indice:
+        k += 1              # incremento em Python, que possui o mesmo resultado k = k + 1
+        soma = soma + k     # após o processo de incremento, a soma sempre receberá a adição ao seu novo valor
 
-     k = k + 1
-     soma = soma + k
-
-print(soma)
+    print(soma)             # ao final, será exibido o resultado
