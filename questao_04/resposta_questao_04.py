@@ -1,15 +1,17 @@
 # Cálculo mensal
 
-faturamento_mensal_estados = dict(espirito_santo = 27165.48, minas_gerais = 29229.88, sao_paulo = 67836.43, rio_de_janeiro = 36678.66, outros = 19849.53)
 
-faturamento_total = 0
+def faturamento_das_distribuidoras(distribuidoras: dict):
+    # keys: nomes dos estados
+    # values: valores dos faturamentos nos estados
 
-for f in faturamento_mensal_estados.values():
+    faturamento_total: float = 0
+    faturamento_por_distribuidora: dict() = {}
 
-     faturamento_total += f
+    for valor in distribuidoras.values():
+        faturamento_total += valor
 
-print('Percentual de faturamento de cada estado pelo total: \n')
+    for distribuidora, valor in distribuidoras.items():
+        faturamento_por_distribuidora[distribuidora] = dict(faturamento=valor, percentual=round((valor / faturamento_total), 2))
 
-for estado in faturamento_mensal_estados:
-
-     print(f'{estado}: {round((faturamento_mensal_estados[estado] / faturamento_total) * 100)}% - VALORES ARREDONDADOS')
+    return faturamento_por_distribuidora, faturamento_total
