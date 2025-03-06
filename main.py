@@ -1,13 +1,18 @@
+import locale
+
 from arquivos.caminho_dos_arquivos import CaminhoDosArquivos
 
 from questao_01.resposta_questao_01 import questao_um_retorno_soma
 from questao_02.resposta_questao_02 import sequencia_fibonacci
 from questao_03.resposta_questao_03 import ArquivoJSON
 from questao_03.resposta_questao_03 import ArquivoXML
+from questao_03.faturamento_mensal import FaturamentoMensal
 from questao_04.resposta_questao_04 import faturamento_das_distribuidoras
 from questao_05.resposta_questao_05 import InverterStrings
 
 if __name__ == '__main__':
+    locale.setlocale(locale.LC_ALL, 'pt_BR')
+
     tralha_para_ficar_bonito_no_console: str = '##########'
 
     print(f'Olá Mundo!')
@@ -36,12 +41,29 @@ if __name__ == '__main__':
 
     print(f'\n{tralha_para_ficar_bonito_no_console}')
     print(f'Questão 03 - Manipular arquivos')
+    print(f'A questão propõem a manipulação dos arquivos JSON ou XML para obter as informações detalhadas abaixo:')
 
     arquivo_json = ArquivoJSON()
     setattr(arquivo_json, 'caminho_json', CaminhoDosArquivos.ARQUIVO_JSON.value)
 
     arquivo_xml = ArquivoXML()
     setattr(arquivo_xml, 'caminho_xml', CaminhoDosArquivos.ARQUIVO_XML.value)
+
+    dados_do_faturamento_mensal = FaturamentoMensal(arquivo_json.dict_file_json)
+    dados_do_faturamento_mensal._converter_dicionario()
+
+    print(f'{"":5}O maior faturamento: ', end='')
+    dados_do_faturamento_mensal._maior_faturamento()
+
+    print(f'{"":5}O menor faturamento: ', end='')
+    dados_do_faturamento_mensal._menor_faturamento()
+
+    print(f'{"":5}Informações relacionadas à média:')
+    dados_do_faturamento_mensal._media_faturamento()
+
+    print('\n')
+    print(f'Desta forma, conforme enunciado, serão ignorados os dias que possuem valores zerados.')
+    print(f'Optei por utilizar o arquivo JSON, mas, conforme é possível obervar nas classes internas deste projeto, existe também a conversão dos dados contidos no XML para um dicionário manipulável.')
 
     print(f'\n{tralha_para_ficar_bonito_no_console}')
     print(f'Questão 04 - Percentual de Faturamento')
