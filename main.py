@@ -5,6 +5,7 @@ from questao_02.resposta_questao_02 import sequencia_fibonacci
 from questao_03.resposta_questao_03 import ArquivoJSON
 from questao_03.resposta_questao_03 import ArquivoXML
 from questao_04.resposta_questao_04 import faturamento_das_distribuidoras
+from questao_05.resposta_questao_05 import InverterStrings
 
 if __name__ == '__main__':
     tralha_para_ficar_bonito_no_console: str = '##########'
@@ -58,3 +59,21 @@ if __name__ == '__main__':
     print(f'{"":5}O valor total do faturamento de todos os estados é: {faturamento_das_distribuidoras[1]}')
     print(f'{"":5}O percentual individual de cada distribuidora, poderá ser conferiro a seguir:')
     for (distribuidora, valores) in faturamento_das_distribuidoras[0].items(): print(f'{"":10}{distribuidora}: Faturamento = {valores.get("faturamento")} | Percentual = {100 * valores.get("percentual")}%')
+
+    print(f'\n{tralha_para_ficar_bonito_no_console}')
+    print(f'Questão 05 - Inverter a String')
+    print(f'Para efetuar o processo de interver determinada String, optei pelo processo de criar uma classe para inserir valores a serem destinados ao atributo "palavra", e após, pelos métodos GET e SET será possível oter estes retornos.')
+
+    texto_para_ser_convertido: str = 'texto_para_ser_convertido'
+
+    converter_stirng = InverterStrings(texto_para_ser_convertido)
+
+    print(f'Palavra original: "{converter_stirng.palavra}"')
+    print(f'Palavra convertida: "{converter_stirng.inverter_a_string()}"\n')
+
+    converter_stirng.palavra = 'Uma nova String para ser convertida totalmente diferente da anterior e super extensa para sabermos se este processo irá funcionar.'
+    print(f'Palavra original: "{converter_stirng.palavra}"')
+    print(f'Palavra convertida: "{converter_stirng.inverter_a_string()}"')
+
+    print(f'\n{tralha_para_ficar_bonito_no_console}')
+    print(f'E com isto, chega-se ao final do teste prático. Obrigado. E lhe desejo uma vida longa e próspera. 🖖🏻')
