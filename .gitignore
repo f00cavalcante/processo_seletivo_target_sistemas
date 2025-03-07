@@ -1,0 +1,27 @@
+# Ignorar o ambiente virtual
+venv/
+.env
+.venv/
+env/
+
+# Ignorar arquivos compilados do Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignorar configurações de IDEs
+.vscode/
+.idea/
+*.swp
+
+# Ignorar logs e arquivos temporários
+*.log
+*.tmp
+
+# Ignorar dependências de pacotes (caso use Poetry)
+poetry.lock
+
+# Ignorar arquivos específicos do pyenv (caso não queira versionar)
+.python-version
+.DS_Store
