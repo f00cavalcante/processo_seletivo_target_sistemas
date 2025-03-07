@@ -24,4 +24,6 @@ poetry.lock
 
 # Ignorar arquivos específicos do pyenv (caso não queira versionar)
 .python-version
+
+# Ignorar arquivos do macOS
 .DS_Store
